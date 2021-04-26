@@ -1,9 +1,10 @@
 import React from 'react';
 import { Component } from 'react';
-import logo from './react-logo.svg';
 import './App.css';
 import Header from './Header';
 import Footer from './Footer';
+import CreatureList from './CreatureList';
+import creatures from './creatures.js';
 
 class App extends Component {
 
@@ -12,11 +13,9 @@ class App extends Component {
       <div className="App">
         <Header/>
   
-        My React App...
-        is lit
-        
-        <img src={logo} className="temp-images" alt="react logo" />
-        <img src="acl-logo.png" className="temp-images" alt="acl logo" />
+        <main>
+          <CreatureList creatures = {creatures}></CreatureList>
+        </main>
 
         <Footer/>
       
