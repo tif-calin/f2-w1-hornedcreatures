@@ -1,0 +1,19 @@
+.CreatureItem img {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 0 0 10px 10px;
+}
+
+.CreatureItem {
+  justify-content: space-between;
+  border: 1px solid black;
+  min-height: 300px;
+  height: 400px;
+  width: 250px;
+  margin: 1rem;
+  border-radius: 10px;
+}
+
+.CreatureItem p {
+  font-size: 0.75rem;
+}
