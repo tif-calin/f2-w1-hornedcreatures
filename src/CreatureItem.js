@@ -7,10 +7,10 @@ class CreatureItem extends Component {
 
     return (
       <li className="CreatureItem wrapper-v">
-        <h3>{creature.title}</h3>
+        <h3>{creature.title} ({'👿'.repeat(creature.horns)})</h3>
         <span>{creature.keyword}</span>
-        <img src={creature.url} alt={`<<${creature.title} image>>`}></img>
-        
+        <img src={creature.url} alt={`<<${creature.title}>>`}></img>
+        <p>{creature.description}</p>
       </li>
     );
   }
