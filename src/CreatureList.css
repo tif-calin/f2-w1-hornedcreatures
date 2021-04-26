@@ -1,0 +1,5 @@
+.CreatureList {
+  list-style: none;
+  width: 100%;
+  flex-wrap: wrap;
+}
