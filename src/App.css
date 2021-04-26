@@ -1,5 +1,18 @@
 .App {
-  display: grid;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.App * {
+  max-width: 60%;
+  border: 1px solid black;
+}
+
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* TODO: remove **/
