@@ -7,10 +7,10 @@ class Item extends Component {
 
     return (
       <li className="Item wrapper-v">
-        <div class="top wrapper-v">
-          <h3 class="title">{book.title}<span class="subtitle">{(book.subtitle) ? `: ${book.subtitle}` : ''}</span></h3>
+        <div className="top wrapper-v">
+          <h3 className="title">{book.title}<span className="subtitle">{(book.subtitle) ? `: ${book.subtitle}` : ''}</span></h3>
         </div>
-        <div class="bottom wrapper-v">
+        <div className="bottom wrapper-v">
           <img src={book.image} alt={`<<${book.title}>>`}></img>
           <span>{book.authors[0]}</span>
         </div>

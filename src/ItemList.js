@@ -8,7 +8,7 @@ class ItemList extends Component {
 
     return (
       <ul className="ItemList wrapper-h">
-        {books.map(book => <Item book={book}/>)}
+        {books.map(book => <Item key={book.isbn13} book={book}/>)}
       </ul>
     );
   }
