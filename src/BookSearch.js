@@ -2,9 +2,24 @@ import React, { Component } from 'react';
 import './BookSearch.css';
 
 class BookSearch extends Component {
+  state = {
+    query: '',
+    sort: '',
+    field: ''
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.onSearch(this.state);
+  }
+
+  componentDidUpdate(prevProp, prevState) {
+    if (prevState !== this.state) this.props.onSearch(this.state);
+  }
+
   render() {
     return (
-      <form className="BookSearch wrapper-h">
+      <form className="BookSearch wrapper-h" onSubmit={this.handleSubmit}>
         <label htmlFor="search">search:</label>
         <input name="search" type="text"/>
         <label htmlFor="sort">sort by:</label>
