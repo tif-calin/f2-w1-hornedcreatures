@@ -3,8 +3,8 @@ import { Component } from 'react';
 import './App.css';
 import Header from './Header';
 import Footer from './Footer';
-import CreatureList from './CreatureList';
-import creatures from './creatures.js';
+import ItemList from './ItemList';
+import books from './data.js';
 
 class App extends Component {
 
@@ -14,7 +14,7 @@ class App extends Component {
         <Header/>
   
         <main>
-          <CreatureList creatures = {creatures}></CreatureList>
+          <ItemList books = {books}></ItemList>
         </main>
 
         <Footer/>
@@ -22,6 +22,7 @@ class App extends Component {
       </div>
     );
   }
+
 }
 
 export default App;
