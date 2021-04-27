@@ -2,8 +2,9 @@ import React from 'react';
 import { Component } from 'react';
 import './App.css';
 import Header from './Header';
-import Footer from './Footer';
+import BookSearch from './BookSearch';
 import ItemList from './ItemList';
+import Footer from './Footer';
 import books from './data.js';
 
 class App extends Component {
@@ -12,7 +13,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
-  
+
+        <BookSearch/>
         <main>
           <ItemList books = {books}></ItemList>
         </main>
