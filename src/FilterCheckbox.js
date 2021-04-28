@@ -5,9 +5,10 @@ class FilterCheckbox extends Component {
 
   render() {
     const val = this.props.val;
+    const onchange = this.props.onchange;
     
     return (
-      <label className="FilterCheckbox"><input type="checkbox" value={val}/>{val}</label>
+      <label className="FilterCheckbox"><input type="checkbox" value={val} onChange={onchange}/>{val}</label>
     );
   }
 };

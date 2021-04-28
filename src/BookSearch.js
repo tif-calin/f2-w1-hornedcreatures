@@ -7,24 +7,40 @@ import { getUniquePropList } from './utils.js';
 class BookSearch extends Component {
   state = {
     query: '',
+    queryField: 'title',
     sort: '',
-    field: 'title',
-    filters: {
-      tags: [],
-      authors: []
-    }
+    filterTags: [],
+    filterAuthors: []
   }
 
   handleSearchChange = e => {
     this.setState({ query: e.target.value });
   }
 
+  handleSearchFieldChange = e => {
+    this.setState({ queryField: e.target.value });
+  }
+
   handleSortChange = e => {
     this.setState({ sort: e.target.value });
   }
 
-  handleFilterChange = e => {
-    this.setState({ field: e.target.value });
+  handleTagFilterChange = e => {
+    let newFilters = [...this.state.filterTags];
+    const newTag = e.target.value;
+    if (!newFilters.includes(newTag)) newFilters.push(newTag);
+    else newFilters = newFilters.filter(tag => tag !== newTag);
+
+    this.setState({ filterTags: newFilters });
+  }
+
+  handleAuthorFilterChange = e => {
+    let newFilters = [...this.state.filterAuthors];
+    const newAuthor = e.target.value;
+    if (!newFilters.includes(newAuthor)) newFilters.push(newAuthor);
+    else newFilters = newFilters.filter(author => author !== newAuthor);
+
+    this.setState({ filterAuthors: newFilters });
   }
 
   handleSubmit = e => {
@@ -73,13 +89,11 @@ class BookSearch extends Component {
           <div className="dropdown-content">
             <fieldset className="wrapper-v">
               <legend>tags</legend>
-              {tags.map(tag => <FilterCheckbox key = {tag} val = {tag}/>)}
+              {tags.map(tag => <FilterCheckbox key = {tag} val = {tag} onchange={this.handleTagFilterChange}/>)}
             </fieldset>
             <fieldset className="wrapper-v">
               <legend>authors</legend>
-              {authors.map(author => <FilterCheckbox key = {author} val = {author}/>)}
-              <label><input type="checkbox"/>Anna Tsing</label>
-              <label><input type="checkbox"/>David Graeber</label>
+              {authors.map(author => <FilterCheckbox key = {author} val = {author} onchange={this.handleAuthorFilterChange}/>)}
             </fieldset>
           </div>
         </div>
