@@ -25,22 +25,20 @@ class BookSearch extends Component {
     this.setState({ sort: e.target.value });
   }
 
-  handleTagFilterChange = e => {
-    let newFilters = [...this.state.filterTags];
-    const newTag = e.target.value;
-    if (!newFilters.includes(newTag)) newFilters.push(newTag);
-    else newFilters = newFilters.filter(tag => tag !== newTag);
-
-    this.setState({ filterTags: newFilters });
+  handleTagFilterChecked = val => {
+    this.setState({ filterTags: [...this.state.filterTags, val] });
   }
 
-  handleAuthorFilterChange = e => {
-    let newFilters = [...this.state.filterAuthors];
-    const newAuthor = e.target.value;
-    if (!newFilters.includes(newAuthor)) newFilters.push(newAuthor);
-    else newFilters = newFilters.filter(author => author !== newAuthor);
+  handleTagFilterUnchecked = val => {
+    this.setState({ filterTags: this.state.filterTags.filter(tag => tag !== val) });
+  }
 
-    this.setState({ filterAuthors: newFilters });
+  handleAuthorFilterChecked = val => {
+    this.setState({ filterAuthors: [...this.state.filterAuthors, val] });
+  }
+
+  handleAuthorFilterUnchecked = val => {
+    this.setState({ filterAuthors: this.state.filterAuthors.filter(tag => tag !== val) });
   }
 
   handleSubmit = e => {
@@ -89,11 +87,11 @@ class BookSearch extends Component {
           <div className="dropdown-content">
             <fieldset className="wrapper-v">
               <legend>tags</legend>
-              {tags.map(tag => <FilterCheckbox key = {tag} val = {tag} onchange={this.handleTagFilterChange}/>)}
+              {tags.map(tag => <FilterCheckbox key={tag} val={tag} onChecked={this.handleTagFilterChecked} onUnchecked={this.handleTagFilterUnchecked}/>)}
             </fieldset>
             <fieldset className="wrapper-v">
               <legend>authors</legend>
-              {authors.map(author => <FilterCheckbox key = {author} val = {author} onchange={this.handleAuthorFilterChange}/>)}
+              {authors.map(author => <FilterCheckbox key={author} val={author} onChecked={this.handleAuthorFilterChecked} onUnchecked={this.handleAuthorFilterUnchecked}/>)}
             </fieldset>
           </div>
         </div>
