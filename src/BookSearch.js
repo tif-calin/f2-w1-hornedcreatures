@@ -45,7 +45,7 @@ class BookSearch extends Component {
         <select name="sort" onChange={this.handleSortChange}>
           <optgroup label="alphabetical">
             <option value="title">title</option>
-            <option value="author">author</option>
+            <option value="authors">author</option>
           </optgroup>
           <optgroup label="date">
             <option value="date-ascending">newest</option>
@@ -63,11 +63,11 @@ class BookSearch extends Component {
           <div className="dropdown-content">
             <fieldset className="wrapper-v">
               <legend>tags</legend>
-              {tags.map(tag => <FilterCheckbox val = {tag}/>)}
+              {tags.map(tag => <FilterCheckbox key = {tag} val = {tag}/>)}
             </fieldset>
             <fieldset className="wrapper-v">
               <legend>authors</legend>
-              {authors.map(author => <FilterCheckbox val = {author}/>)}
+              {authors.map(author => <FilterCheckbox key = {author} val = {author}/>)}
               <label><input type="checkbox"/>Anna Tsing</label>
               <label><input type="checkbox"/>David Graeber</label>
             </fieldset>
