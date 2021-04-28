@@ -39,7 +39,7 @@ class App extends Component {
     }
   }
 
-  handleSearch = ({ query, queryField = 'title', sort = null, filters }) => {
+  handleSearch = ({ query, queryField = 'title', sort = null, filterTags, filterAuthors }) => {
     const qRegex = new RegExp(query, 'i');
 
     if (!sort) sort = 'title';
@@ -55,18 +55,21 @@ class App extends Component {
     if (reverse) sorted.reverse();
 
     let filtered = sorted;
-    if ((filters.tags.length + filters.authors.length)) {
+    if ((filterTags.length + filterAuthors.length)) {
       filtered = sorted.filter(book => {
-        if (filters.tags.length) {
-          book.tags.forEach(tag => {
-            if (filters.tags.includes(tag)) return true;
-          });
+
+        if (filterTags.length) {
+          for (let tag of book.tags) {
+            if (filterTags.includes(tag)) return true;
+          }
         }
-        if (filters.authors.length) {
-          book.authors.forEach(author => {
-            if (filters.authors.includes(author)) return true;
-          });
+
+        if (filterAuthors.length) {
+          for (let author of book.authors) {
+            if (filterAuthors.includes(author)) return true;
+          }
         }
+
         return false;
       });
     } 
