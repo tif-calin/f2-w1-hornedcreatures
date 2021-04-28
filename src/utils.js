@@ -1,8 +1,10 @@
 export function getUniquePropList(arr, prop) {
   const arrProps = [];
-  
+
   arr.forEach(obj => {
-    if (!arrProps.includes(obj[prop])) arrProps.push(obj[prop]);
+    obj[prop].forEach(str => {
+      if (!arrProps.includes(str)) arrProps.push(str);
+    });
   });
 
   return arrProps;
