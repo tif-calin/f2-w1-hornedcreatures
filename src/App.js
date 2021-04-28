@@ -12,21 +12,64 @@ class App extends Component {
     books: bookData
   }
 
-  handleSearch = ({ query, sort = null, queryField = 'title' }) => {
+  sortFncs = {
+    title: (a, b) => {
+      if (a['title'] < b['title']) return -1;
+      else if (a['title'] > b['title']) return 1;
+      return 0;
+    },
+    authors: (a, b) => {
+      if (a['authors'][0] < b['authors'][0]) return -1;
+      else if (a['authors'][0] > b['authors'][0]) return 1;
+      return 0;
+    },
+    oldest: (a, b) => {
+      if (a.year < b.year) return -1;
+      else if (a.year > b.year) return 1;
+      else {
+        if (a.month < b.month) return -1;
+        else if (a.month > b.month) return 1;
+        return 0;
+      }
+    },
+    shortest: (a, b) => {
+      if (a.wordcount < b.wordcount) return -1;
+      else if (a.wordcount > b.wordcount) return 1;
+      return 0;
+    }
+  }
+
+  handleSearch = ({ query, queryField = 'title', sort = null, filters }) => {
     const qRegex = new RegExp(query, 'i');
 
+    if (!sort) sort = 'title';
+
+    let reverse = false;
+    if (sort.includes('-reverse')) {
+      reverse = true;
+      sort = sort.slice(0, -8);
+    }
+
     const searched = bookData.filter(book => !query || book[queryField].match(qRegex));
-    const sorted = searched.sort((a, b) => {
-      if (sort === 'title') {
-        if (a[sort] < b[sort]) return -1;
-        else if (a[sort] > b[sort]) return 1;
-      } else if (sort === 'authors') {
-        if (a[sort][0] < b[sort][0]) return -1;
-        else if (a[sort][0] > b[sort][0]) return 1;
-      } 
-      return 0;
-    });
-    const filtered = sorted.filter(book => true);
+    const sorted = searched.sort((a, b) => this.sortFncs[sort](a, b));
+    if (reverse) sorted.reverse();
+
+    let filtered = sorted;
+    if ((filters.tags.length + filters.authors.length)) {
+      filtered = sorted.filter(book => {
+        if (filters.tags.length) {
+          book.tags.forEach(tag => {
+            if (filters.tags.includes(tag)) return true;
+          });
+        }
+        if (filters.authors.length) {
+          book.authors.forEach(author => {
+            if (filters.authors.includes(author)) return true;
+          });
+        }
+        return false;
+      });
+    } 
 
     this.setState({ books: filtered });
   }
