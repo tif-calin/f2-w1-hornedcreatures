@@ -12,19 +12,16 @@ class App extends Component {
     books: bookData
   }
 
-  handleSearch(query, sort = null, field = 'title') {
-    const nameRegex = new RegExp(query, 'i');
+  handleSearch = ({ query, sort = null, field = 'title' }) => {
+    const qRegex = new RegExp(query, 'i');
 
-    const searched = bookData.filter(book => !query || book[field].match(nameRegex));
+    const searched = bookData.filter(book => !query || book[field].match(qRegex));
     const sorted = searched.sort((a, b) => {
       return 0;
     });
+    const filtered = sorted.filter(book => true);
 
-    this.setState({ books: sorted });
-  }
-
-  handleSort() {
-
+    this.setState({ books: filtered });
   }
 
   render() {
@@ -35,7 +32,7 @@ class App extends Component {
         <BookSearch onSearch={this.handleSearch}/>
 
         <main>
-          <ItemList books = {bookData}></ItemList>
+          <ItemList books = {this.state.books}></ItemList>
         </main>
 
         <Footer/>

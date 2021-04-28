@@ -5,10 +5,22 @@ class BookSearch extends Component {
   state = {
     query: '',
     sort: '',
-    field: ''
+    field: 'title'
   }
 
-  handleSubmit(e) {
+  handleSearchChange = e => {
+    this.setState({ query: e.target.value });
+  }
+
+  handleSortChange = e => {
+    this.setState({ sort: e.target.value });
+  }
+
+  handleFilterChange = e => {
+    this.setState({ field: e.target.value });
+  }
+
+  handleSubmit = e => {
     e.preventDefault();
     this.props.onSearch(this.state);
   }
@@ -21,9 +33,10 @@ class BookSearch extends Component {
     return (
       <form className="BookSearch wrapper-h" onSubmit={this.handleSubmit}>
         <label htmlFor="search">search:</label>
-        <input name="search" type="text"/>
+        <input name="search" type="text" onChange={this.handleSearchChange}/>
+
         <label htmlFor="sort">sort by:</label>
-        <select name="sort">
+        <select name="sort" onChange={this.handleSortChange}>
           <optgroup label="alphabetical">
             <option value="title">title</option>
             <option value="author">author</option>
@@ -37,6 +50,7 @@ class BookSearch extends Component {
             <option value="readingLength-descending">longest</option>
           </optgroup>
         </select>
+
         {/* <label htmlFor="filter">filter:</label>
         <input name="filter"/> */}
       </form>
