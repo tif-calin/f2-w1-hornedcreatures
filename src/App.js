@@ -12,11 +12,18 @@ class App extends Component {
     books: bookData
   }
 
-  handleSearch = ({ query, sort = null, field = 'title' }) => {
+  handleSearch = ({ query, sort = null, queryField = 'title' }) => {
     const qRegex = new RegExp(query, 'i');
 
-    const searched = bookData.filter(book => !query || book[field].match(qRegex));
+    const searched = bookData.filter(book => !query || book[queryField].match(qRegex));
     const sorted = searched.sort((a, b) => {
+      if (sort === 'title') {
+        if (a[sort] < b[sort]) return -1;
+        else if (a[sort] > b[sort]) return 1;
+      } else if (sort === 'authors') {
+        if (a[sort][0] < b[sort][0]) return -1;
+        else if (a[sort][0] > b[sort][0]) return 1;
+      } 
       return 0;
     });
     const filtered = sorted.filter(book => true);
