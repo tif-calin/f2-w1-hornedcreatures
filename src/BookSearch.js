@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './BookSearch.css';
+import bookData from './data.js';
+import FilterCheckbox from './FilterCheckbox';
+import { getUniquePropList } from './utils.js';
 
 class BookSearch extends Component {
   state = {
@@ -30,6 +33,9 @@ class BookSearch extends Component {
   }
 
   render() {
+    const authors = getUniquePropList(bookData, 'authors');
+    const tags = getUniquePropList(bookData, 'tags');
+
     return (
       <form className="BookSearch wrapper-h" onSubmit={this.handleSubmit}>
         <label htmlFor="search">search:</label>
@@ -53,16 +59,15 @@ class BookSearch extends Component {
 
         <label htmlFor="filter">filter:</label>
         <div name="filter" className="dropdown">
-          &#x2B07;
+          <button>&#x2B07;</button>
           <div className="dropdown-content">
             <fieldset className="wrapper-v">
               <legend>tags</legend>
-              <label><input type="checkbox"/>food science</label>
-              <label><input type="checkbox"/>cultural anthropology</label>
-              <label><input type="checkbox"/>economic history</label>
+              {tags.map(tag => <FilterCheckbox val = {tag}/>)}
             </fieldset>
             <fieldset className="wrapper-v">
               <legend>authors</legend>
+              {authors.map(author => <FilterCheckbox val = {author}/>)}
               <label><input type="checkbox"/>Anna Tsing</label>
               <label><input type="checkbox"/>David Graeber</label>
             </fieldset>
