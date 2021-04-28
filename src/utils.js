@@ -7,5 +7,5 @@ export function getUniquePropList(arr, prop) {
     });
   });
 
-  return arrProps;
+  return arrProps.sort();
 }
