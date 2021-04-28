@@ -2,7 +2,28 @@
   margin: 1rem;
 }
 
-.BookSearch label {
+.BookSearch > label {
   margin-left: 1rem;
-  margin-right: 0.5rem;
+  margin-right: 0.25rem;
+}
+
+.dropdown {
+}
+
+.dropdown-content {
+  padding: 0.25rem;
+  max-width: 20rem;
+  display: none;
+}
+
+.dropdown-content fieldset {
+  padding-right: 0.5rem;
+  align-items: flex-start;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
 }

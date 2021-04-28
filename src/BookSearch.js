@@ -51,8 +51,23 @@ class BookSearch extends Component {
           </optgroup>
         </select>
 
-        {/* <label htmlFor="filter">filter:</label>
-        <input name="filter"/> */}
+        <label htmlFor="filter">filter:</label>
+        <div name="filter" className="dropdown">
+          &#x2B07;
+          <div className="dropdown-content">
+            <fieldset className="wrapper-v">
+              <legend>tags</legend>
+              <label><input type="checkbox"/>food science</label>
+              <label><input type="checkbox"/>cultural anthropology</label>
+              <label><input type="checkbox"/>economic history</label>
+            </fieldset>
+            <fieldset className="wrapper-v">
+              <legend>authors</legend>
+              <label><input type="checkbox"/>Anna Tsing</label>
+              <label><input type="checkbox"/>David Graeber</label>
+            </fieldset>
+          </div>
+        </div>
       </form>
     );
   }
