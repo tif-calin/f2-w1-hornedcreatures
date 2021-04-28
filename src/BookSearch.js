@@ -8,7 +8,11 @@ class BookSearch extends Component {
   state = {
     query: '',
     sort: '',
-    field: 'title'
+    field: 'title',
+    filters: {
+      tags: [],
+      authors: []
+    }
   }
 
   handleSearchChange = e => {
@@ -40,6 +44,11 @@ class BookSearch extends Component {
       <form className="BookSearch wrapper-h" onSubmit={this.handleSubmit}>
         <label htmlFor="search">search:</label>
         <input name="search" type="text" onChange={this.handleSearchChange}/>
+        {/*<select>
+          <option>title</option>
+          <option>author</option>
+          <option>subtitle</option>
+        </select>*/}
 
         <label htmlFor="sort">sort by:</label>
         <select name="sort" onChange={this.handleSortChange}>
@@ -48,14 +57,15 @@ class BookSearch extends Component {
             <option value="authors">author</option>
           </optgroup>
           <optgroup label="date">
-            <option value="date-ascending">newest</option>
-            <option value="date-descending">oldest</option>
+            <option value="oldest-reverse">newest</option>
+            <option value="oldest">oldest</option>
           </optgroup>
           <optgroup label="reading length">
-            <option value="readingLength-ascending">shortest</option>
-            <option value="readingLength-descending">longest</option>
+            <option value="shortest">shortest</option>
+            <option value="shortest-reverse">longest</option>
           </optgroup>
         </select>
+        {/*<button>🔄</button>*/}
 
         <label htmlFor="filter">filter:</label>
         <div name="filter" className="dropdown">
