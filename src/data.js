@@ -105,6 +105,68 @@ const books = [
     },
     wordcount: 96570,
     tags: ['food science', 'environmentalist economics', 'cultural anthropology']
+  },
+  {
+    title: 'The Master Algorithm',
+    subtitle: 'How the Quest for the Ultimate Learning Machine Will Remake Our World',
+    authors: ['Pedro Domingos'],
+    year: 2015,
+    month: 9,
+    isbn13: '978-0465094271',
+    image: 'https://images-na.ssl-images-amazon.com/images/I/51hx36lKe6L._SX331_BO1,204,203,200_.jpg',
+    url: {
+      publisher: 'https://www.basicbooks.com/titles/pedro-domingos/the-master-algorithm/9780465061921/',
+      amazon: 'https://www.amazon.com/dp/0465094279/',
+      wikipedia: 'https://en.wikipedia.org/wiki/The_Master_Algorithm'
+    },
+    wordcount: 113535,
+    tags: ['computer programming logic', 'artificial intelligence expert systems', 'business development']
+  },
+  {
+    title: 'The Spell of the Sensuous',
+    subtitle: 'Perception and Language in a More-Than-Human World',
+    authors: ['David Abram'],
+    year: 1997,
+    month: 2,
+    isbn13: '978-0679776390',
+    image: 'https://images-na.ssl-images-amazon.com/images/I/511reY7gVKL._SX322_BO1,204,203,200_.jpg',
+    url: {
+      publisher: 'https://www.penguinrandomhouse.com/books/319/the-spell-of-the-sensuous-by-david-abram/',
+      amazon: 'https://www.amazon.com/dp/0679776397',
+      free: 'https://projects.iq.harvard.edu/files/retreat/files/abram_the_spell_of_the_sensuous_perception.pdf'
+    },
+    wordcount: 104980,
+    tags: ['existentialist philosophy', 'humanist philosophy', 'linguistics reference']
+  },
+  {
+    title: 'The Hidden Life of Trees',
+    subtitle: 'What They Feel, How They Communicate – Discoveries from a Secret World',
+    authors: ['Peter Wohlleben'],
+    year: 2015,
+    month: 5,
+    isbn13: '978-1771642484',
+    image: 'https://images-na.ssl-images-amazon.com/images/I/41uEMy1V0JL._SX348_BO1,204,203,200_.jpg',
+    url: {
+      publisher: 'https://greystonebooks.com/products/the-hidden-life-of-trees',
+      amazon: 'https://www.amazon.com/dp/1771642483'
+    },
+    wordcount: 65830,
+    tags: ['plant & animal photography', 'trees in biological sciences', 'nature writing & essays']
+  },
+  {
+    title: 'The Unsettling of America',
+    subtitle: 'Culture & Agriculture',
+    authors: ['Wendell Berry'],
+    year: 1977,
+    month: 1,
+    isbn13: '978-0871568779',
+    image: 'https://images-na.ssl-images-amazon.com/images/I/51qxoAVZ1xL._SX321_BO1,204,203,200_.jpg',
+    url: {
+      publisher: 'https://www.counterpointpress.com/dd-product/the-unsettling-of-america/',
+      amazon: 'https://www.amazon.com/dp/0871568772'
+    },
+    wordcount: 60000,
+    tags: ['agricultural science history', 'agriculture', 'nature writing & essays']
   }
 ];
 
