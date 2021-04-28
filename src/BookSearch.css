@@ -1,0 +1,33 @@
+.BookSearch {
+  margin: 1rem;
+}
+
+.BookSearch > label {
+  margin-left: 1rem;
+  margin-right: 0.25rem;
+}
+
+.dropdown {
+}
+
+.dropdown-content {
+  padding: 0.25rem;
+  max-width: 20rem;
+  display: none;
+}
+
+.dropdown-content fieldset {
+  margin: 0.25rem;
+  padding-right: 0.5rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow: auto;
+  max-height: 12rem;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+}

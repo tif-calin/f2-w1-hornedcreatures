@@ -5,7 +5,7 @@ class Footer extends Component {
   render() {
     return (
       <footer className="Footer">
-        Woot woot?
+        &#x1f12f; steal this content
       </footer>
     );
   }
