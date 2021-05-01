@@ -167,6 +167,39 @@ const books = [
     },
     wordcount: 60000,
     tags: ['agricultural science history', 'agriculture', 'nature writing & essays']
+  },
+  {
+    title: 'PiHKAL',
+    subtitle: 'A Chemical Love Story',
+    authors: ['Alexander Shulgin', 'Ann Shulgin'],
+    year: 1991,
+    month: 10,
+    isbn13: '978-0963009609',
+    image: 'https://images-na.ssl-images-amazon.com/images/I/41LR44C2IjL._SX331_BO1,204,203,200_.jpg',
+    url: {
+      publisher: 'https://www.transformpress.com/pihkal-phenethylamines-i-have-known-and-loved',
+      amazon: 'https://www.amazon.com/dp/0963009605',
+      wikipedia: 'https://en.wikipedia.org/wiki/PiHKAL',
+      free: 'https://erowid.org/library/books_online/pihkal/pihkal.shtml'
+    },
+    wordcount: 244500,
+    tags: ['industrial & technical chemistry', 'general chemistry', 'drug dependency recovery']
+  },
+  {
+    title: 'TiHKAL',
+    subtitle: 'The Continuation',
+    authors: ['Alexander Shulgin', 'Ann Shulgin'],
+    year: 2002,
+    month: 5,
+    isbn13: '978-0963009692',
+    image: 'https://images-na.ssl-images-amazon.com/images/I/41HHS2jXbDL._SX331_BO1,204,203,200_.jpg',
+    url: {
+      publisher: 'https://www.transformpress.com/tihkal-tryptamines-i-have-known-and-loved',
+      amazon: 'https://www.amazon.com/dp/0963009699',
+      wikipedia: 'https://en.wikipedia.org/wiki/TiHKAL'
+    },
+    wordcount: 201000,
+    tags: ['industrial & technical chemistry', 'general chemistry', 'drug dependency recovery']
   }
 ];
 

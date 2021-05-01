@@ -3,12 +3,18 @@ import './FilterCheckbox.css';
 
 class FilterCheckbox extends Component {
 
+  handleChange = ({ target }) => {
+    if (target.checked) this.props.onChecked(target.value);
+    else this.props.onUnchecked(target.value);
+  };
+
   render() {
     const val = this.props.val;
-    const onchange = this.props.onchange;
     
     return (
-      <label className="FilterCheckbox"><input type="checkbox" value={val} onChange={onchange}/>{val}</label>
+      <label className="FilterCheckbox">
+        <input type="checkbox" value={val} onChange={this.handleChange}/>{val}
+      </label>
     );
   }
 };
